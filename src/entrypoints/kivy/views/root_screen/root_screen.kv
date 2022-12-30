@@ -1,0 +1,21 @@
+#: import MDSlideTransition kivymd.uix.transition.transition.MDSlideTransition
+
+<RootScreenView>:
+    app_bar: app_bar
+    screen_manager: screen_manager
+
+    MDScreenManager:
+        id: screen_manager
+        transition: MDSlideTransition(direction="up")
+
+    MDBottomAppBar:
+
+        MDTopAppBar:
+            id: app_bar
+            use_overflow: True
+            title: "Santa Claus notebook"
+            left_action_items: [["list-box-outline", lambda x: root.controller.go_to_people_screen()], ["playlist-star", lambda x: root.controller.go_to_good_people_screen()]]
+            icon: 'snowman'
+            icon_color: app.theme_cls.primary_dark
+            type: 'bottom'
+            on_action_button: root.controller.go_to_welcome_screen()

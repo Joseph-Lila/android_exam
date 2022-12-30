@@ -1,0 +1,23 @@
+<WelcomeScreenView>:
+    sources: sources
+
+    FloatLayout:
+        FitImage:
+            source: "C:/Users/artur/PycharmProjects/android_exam/assets/images/moroz.jpg"
+            mipmap: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: 15, 15, 15, 100
+
+        AnchorLayout:
+            anchor_x: 'right'
+            anchor_y: 'top'
+
+            MDRaisedButton:
+                id: sources
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'SQLite'
+                md_bg_color: 'red'
+                font_size: 32
+                on_release: root.controller.open_sources_menu()

@@ -1,0 +1,46 @@
+#:import ak asynckivy
+
+<DialogAddPerson@BoxLayout>:
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    height: "120dp"
+    name: name
+    age: age
+    behaviour: behaviour
+
+    ScrollView:
+        size: self.size
+
+        MDGridLayout:
+            cols: 1
+            size_hint_y: None
+            row_default_height: '60dp'
+            adaptive_height:True
+            spacing: 5, 5
+            padding: 10, 10, 10, 10
+
+            MDTextField:
+                id: name
+                hint_text: "name"
+                write_tab: False
+
+            MDTextField:
+                id: age
+                hint_text: "age"
+                write_tab: False
+                input_filter: 'int'
+
+            MDTextField:
+                id: behaviour
+                hint_text: "behaviour"
+                write_tab: False
+
+<OKButton@MDFlatButton>:
+    text: "OK"
+    theme_text_color: "Custom"
+    text_color: self.theme_cls.primary_color
+
+<RemovePersonRightIconWidget@IconRightWidget>:
+    icon: 'minus'
+    on_release: ak.start(self.controller.send_remove_person_command(self.parent.parent.item_id))

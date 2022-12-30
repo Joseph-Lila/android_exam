@@ -1,0 +1,27 @@
+<PeopleScreenView>:
+    container: container
+
+    MDCard:
+        orientation: 'vertical'
+        padding: 15, 15, 15, 15
+
+        AnchorLayout:
+            size_hint_y: .2
+
+            MDRoundFlatIconButton:
+                text: "Add new person"
+                icon: "account-plus-outline"
+                text_color: "white"
+                on_release: root.open_add_person_popup()
+
+        MDCard:
+            orientation: 'vertical'
+            md_bg_color: 'pink'
+
+            MDScrollView:
+
+                MDList:
+                    id: container
+
+        Widget:
+            size_hint_y: .2
